@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e
+
+BUILD_DIR=$1
+ENV_DIR=$3
+DIR="$BUILD_DIR/config/certs"
+
+if [ ! -d $DIR ]; then
+  mkdir -p $DIR
+fi
+
+[ -f "$ENV_DIR/SQL_CLIENT_CERT" ] && cp "$ENV_DIR/SQL_CLIENT_CERT" "$DIR/client.cert"
+[ -f "$ENV_DIR/SQL_CLIENT_KEY" ] && cp "$ENV_DIR/SQL_CLIENT_KEY" "$DIR/client.key"
+[ -f "$ENV_DIR/SQL_SERVER_CA" ] && cp "$ENV_DIR/SQL_SERVER_CA" "$DIR/root.cert"
+[ -f "$ENV_DIR/DATABASE_URL_2"] && cp "$ENV_DIR/DATABASE_URL_2" "$ENV_DIR/DATABASE_URL"
+
+exit 0

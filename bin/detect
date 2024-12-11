@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Always run this buildpack
+echo "Local SQL SSL Certs"
+exit 0
